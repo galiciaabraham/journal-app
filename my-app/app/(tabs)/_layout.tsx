@@ -11,9 +11,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="another_window"
+        name="NewEntry"
         options={{
-          title: 'Another Window',
+          title: 'New Entry',
         }}
       />
     </Tabs>

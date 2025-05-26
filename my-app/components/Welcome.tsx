@@ -1,7 +1,15 @@
-import { View, type ViewProps, Text } from 'react-native';
+import { Text } from 'react-native';
 
+//A welcome message component.
 export default function Welcome() {
     return (
-            <Text className='font-bold text-8xl bg-red-700'>Welcome to your Journal...</Text>
+            <Text style={{
+                padding: 10,
+                fontSize: 20,
+                margin: 5,
+                color: '#272727'
+
+            }
+            }>Welcome to your Journal...</Text>
     )
 }

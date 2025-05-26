@@ -9,7 +9,7 @@ export default function Another_Window() {
         alignItems: "center",
       }}
     >
-      <Text>This will be a second screen in my app</Text>
+      <Text>This will be the entry screen in my app </Text>
     </View>
   );
 }
