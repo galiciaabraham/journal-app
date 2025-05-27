@@ -46,6 +46,7 @@ const EditEntryForm = () => {
 
         <TextInput
             placeholder="Entry title..."
+            placeholderTextColor={'#272727'}
             value={title}
             onChangeText={setTitle}
             style={styles.titleInput}
@@ -53,6 +54,7 @@ const EditEntryForm = () => {
 
         <TextInput
             placeholder="Write your thoughts here..."
+            placeholderTextColor={'#272727'}
             value={content}
             onChangeText={setContent}
             style={styles.contentInput}
@@ -72,7 +74,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 16,
-        backgroundColor: '#fff',
+        backgroundColor: '#90D7FF',
     },
     header: {
         flexDirection: 'row',
@@ -88,6 +90,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         borderBottomWidth: 1,
         borderColor: '#ccc',
+        backgroundColor:'#BFD0E0',
         marginBottom: 12,
         padding: 8,
     },
@@ -95,6 +98,7 @@ const styles = StyleSheet.create({
         flex: 1,
         borderWidth: 1,
         borderColor: '#ccc',
+        backgroundColor:'#BFD0E0',
         borderRadius: 8,
         padding: 12,
         fontSize: 16,

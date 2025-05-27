@@ -1,4 +1,4 @@
-import { Button } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
@@ -17,11 +17,29 @@ export default function NewButton() {
         navigation.navigate('NewEntry');
 }
     return (
-            <Button 
+        <TouchableOpacity
+            style={styles.button}
             onPress={navigateToNew}
-            title='New'
-            color='#90D7FF'
             accessibilityLabel='Add a new journal entry'
-            />
+            activeOpacity={0.7}
+        >
+            <Text style={styles.buttonText}>New</Text>
+        </TouchableOpacity>
     )
 }
+
+const styles = StyleSheet.create({
+  button: {
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    backgroundColor: '#7B6D8D',
+    borderRadius: 8,
+    alignItems: 'center',
+    margin: 10,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+});

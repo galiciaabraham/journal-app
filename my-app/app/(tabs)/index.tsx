@@ -23,15 +23,15 @@ export default function Index() {
     <View
       style={{
         margin: 2,
-        backgroundColor: '# BFD0E0',
+        backgroundColor: '#BFD0E0',
       }}
     >
     <Welcome />
     <View style={{
-        margin: 2,
+        margin: 20,
         padding: 5,
         borderRadius: 20,
-        alignItems: "center"
+        alignItems: 'flex-end',
       }}>
     < NewButton/>
     </View>
