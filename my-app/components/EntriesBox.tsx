@@ -1,9 +1,5 @@
-import { Text, FlatList, View, StyleSheet, TouchableOpacity } from 'react-native';
-
-type Entry = {
-    id: string;
-    preview: string;
-}
+import { Text, FlatList, TouchableOpacity } from 'react-native';
+import { Entry } from '@/types/entry';
 
 type Props = {
     entries: Entry[];
@@ -20,7 +16,7 @@ const EntriesList: React.FC<Props> = ({ entries, onSelect }) => {
             <TouchableOpacity
                 onPress={() => onSelect(item.id)}>
                 <Text>
-                    {item.preview}
+                    {item.title}
                 </Text>
             </TouchableOpacity>
         )}

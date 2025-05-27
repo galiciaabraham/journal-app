@@ -1,15 +1,85 @@
-import { Text, View } from "react-native";
+import React from 'react';
+import { useState } from 'react';
+import { View, TextInput, StyleSheet} from 'react-native';
+import uuid from 'react-native-uuid';
+import DoneButton from '@/components/DoneButton';
+import CancelButton from '@/components/CancelButton';
+import BackButton from '@/components/BackButton';
 
-export default function Another_Window() {
+//The NewEntryForm component will allow the user to add a title and content to the journal entry.
+const NewEntryForm = () => {
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+
+  const newEntry = {
+      id: uuid.v4(),
+      title: title,
+      content: content,
+      date: new Date().toISOString(),
+    };
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>This will be the entry screen in my app </Text>
+    <View style={styles.container}>
+
+      <View style={styles.header}>
+        <DoneButton newEntry={newEntry}/>
+        <BackButton/>
+      </View>
+
+      <TextInput
+        placeholder="Entry title..."
+        value={title}
+        onChangeText={setTitle}
+        style={styles.titleInput}
+      />
+
+      <TextInput
+        placeholder="Write your thoughts here..."
+        value={content}
+        onChangeText={setContent}
+        style={styles.contentInput}
+        multiline
+        textAlignVertical="top"
+      />
+      <View style={styles.footer}>
+        <CancelButton/>
+      </View>
     </View>
   );
-}
+};
+
+export default NewEntryForm;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: '#fff',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 16,
+  },
+  titleInput: {
+    fontSize: 18,
+    borderBottomWidth: 1,
+    borderColor: '#ccc',
+    marginBottom: 12,
+    padding: 8,
+  },
+  contentInput: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    padding: 12,
+    fontSize: 16,
+    minHeight: 200,
+  },
+});

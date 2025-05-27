@@ -1,16 +1,21 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import Welcome from '@/components/Welcome';
 import NewButton from '@/components/NewButton';
 import EntriesList from "@/components/EntriesBox";
-import getEntryById from '@/utilities/getEntryById';
+import { getEntryById }from '@/utilities/getEntryById';
+import { getAllEntries } from "@/utilities/getAllEntries";
+import { useState, useEffect } from "react";
+import type { Entry } from '@/types/entry'
 
-const mockingEntries = [
-   { id: '1', preview: 'Entry 1: Today I started...' },
-  { id: '2', preview: 'Entry 2: I dun know what to write...' },
-  { id: '3', preview: 'Entry 3: The answer is 42!...' },
-]
+
 //The component that hosts what's displayed in the Home menu.
 export default function Index() {
+  const [entries, setEntries] = useState<Entry[]>([]);
+
+  useEffect(() => {
+    getAllEntries().then(setEntries);
+  }, []);
+
   return (
     <View
       style={{
@@ -27,7 +32,7 @@ export default function Index() {
       }}>
     < NewButton/>
     </View>
-      <EntriesList entries={mockingEntries} onSelect={getEntryById}/>
+      <EntriesList entries={entries} onSelect={getEntryById}/>
     </View>
   );
 }
