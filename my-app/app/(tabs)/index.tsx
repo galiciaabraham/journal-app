@@ -2,19 +2,22 @@ import { View } from "react-native";
 import Welcome from '@/components/Welcome';
 import NewButton from '@/components/NewButton';
 import EntriesList from "@/components/EntriesBox";
-import { getEntryById }from '@/utilities/getEntryById';
 import { getAllEntries } from "@/utilities/getAllEntries";
 import { useState, useEffect } from "react";
 import type { Entry } from '@/types/entry'
+import { useIsFocused } from "@react-navigation/native";
 
 
 //The component that hosts what's displayed in the Home menu.
 export default function Index() {
   const [entries, setEntries] = useState<Entry[]>([]);
+  const isFocused = useIsFocused();
 
   useEffect(() => {
-    getAllEntries().then(setEntries);
-  }, []);
+    if(isFocused){
+        getAllEntries().then(setEntries);
+    }
+  }, [isFocused]);
 
   return (
     <View
@@ -32,7 +35,7 @@ export default function Index() {
       }}>
     < NewButton/>
     </View>
-      <EntriesList entries={entries} onSelect={getEntryById}/>
+      <EntriesList entries={entries}/>
     </View>
   );
 }

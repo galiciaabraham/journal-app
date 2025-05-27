@@ -5,7 +5,7 @@ export default function Welcome() {
     return (
             <Text style={{
                 padding: 10,
-                fontSize: 20,
+                fontSize: 30,
                 margin: 5,
                 color: '#272727',
                 textAlign: 'center',
