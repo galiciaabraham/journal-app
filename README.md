@@ -12,7 +12,6 @@ Following React principles, the application was built in TypeScript and expo.
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
 * [Expo Docs](https://docs.expo.dev/)
 * [React Native Docs](https://reactnative.dev/docs)
 
